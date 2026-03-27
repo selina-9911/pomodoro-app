@@ -11,6 +11,10 @@ A minimalist Pomodoro timer that lives in your macOS menu bar. Built with SwiftU
 - Simple, clean interface with a custom color palette
 - Settings persistence using UserDefaults
 
+## Demo
+
+![Pomodoro Demo](demo.gif)
+
 ## Requirements
 
 - macOS 13.0 or later
@@ -18,12 +22,68 @@ A minimalist Pomodoro timer that lives in your macOS menu bar. Built with SwiftU
 
 ## Installation
 
-### Building from Source
+### Quick Start (Command Line)
 
 1. Clone this repository:
    ```bash
-   git clone <repository-url>
-   cd pomodoro
+   git clone https://github.com/selina-9911/pomodoro-app.git
+   cd pomodoro-app
+   ```
+
+2. Build the project once:
+   ```bash
+   xcodebuild -project Pomodoro.xcodeproj -scheme Pomodoro -configuration Debug
+   ```
+
+3. (Optional) Set up a command-line launcher for easy access:
+   ```bash
+   mkdir -p ~/.local/bin
+
+   # Create launcher script (update APP_PATH to your clone location)
+   cat > ~/.local/bin/pomodoro << 'EOF'
+   #!/bin/zsh
+   APP_PATH="$HOME/your/path/to/pomodoro-app"  # Update this!
+   BUILD_PATH="$HOME/Library/Developer/Xcode/DerivedData"
+
+   if pgrep -x "Pomodoro" > /dev/null; then
+       echo "✅ Pomodoro is already running"
+       exit 0
+   fi
+
+   POMODORO_APP=$(find "$BUILD_PATH" -name "Pomodoro.app" -path "*/Debug/Pomodoro.app" 2>/dev/null | head -n 1)
+
+   if [ -z "$POMODORO_APP" ]; then
+       echo "🔨 Building..."
+       cd "$APP_PATH" && xcodebuild -project Pomodoro.xcodeproj -scheme Pomodoro -configuration Debug build > /dev/null 2>&1
+       POMODORO_APP=$(find "$BUILD_PATH" -name "Pomodoro.app" -path "*/Debug/Pomodoro.app" 2>/dev/null | head -n 1)
+   fi
+
+   if [ -n "$POMODORO_APP" ]; then
+       echo "🍅 Launching Pomodoro..."
+       open "$POMODORO_APP"
+   fi
+   EOF
+
+   chmod +x ~/.local/bin/pomodoro
+
+   # Add to PATH if needed
+   echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+   source ~/.zshrc
+   ```
+
+4. Launch from anywhere:
+   ```bash
+   pomodoro
+   ```
+
+The launcher will build the app if needed and launch it in your menu bar!
+
+### Building from Source (Xcode)
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/selina-9911/pomodoro-app.git
+   cd pomodoro-app
    ```
 
 2. Open the project in Xcode:
