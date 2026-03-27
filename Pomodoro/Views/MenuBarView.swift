@@ -13,21 +13,8 @@ struct MenuBarView: View {
     @State private var showingSettings = false
     @Environment(\.colorScheme) var colorScheme
 
-    // Adaptive color palette
-    private var backgroundColor: Color {
-        colorScheme == .dark ? Color(hex: "2a2a2a") : Color(hex: "F6F0D7")
-    }
-
-    private var accentColor1: Color {
-        colorScheme == .dark ? Color(hex: "8fb380") : Color(hex: "C5D89D")
-    }
-
-    private var accentColor2: Color {
-        colorScheme == .dark ? Color(hex: "7a9c6f") : Color(hex: "9CAB84")
-    }
-
-    private var accentColor3: Color {
-        colorScheme == .dark ? Color(hex: "a8c99f") : Color(hex: "89986D")
+    private var theme: AppTheme {
+        AppTheme.current(for: colorScheme)
     }
 
     var body: some View {
@@ -35,7 +22,7 @@ struct MenuBarView: View {
             // Session type indicator
             Text(timerViewModel.sessionType.displayText)
                 .font(.system(size: 18, weight: .semibold))
-                .foregroundColor(timerViewModel.sessionType == .focus ? accentColor3 : accentColor2)
+                .foregroundColor(timerViewModel.sessionType == .focus ? theme.accentColor3 : theme.accentColor2)
 
             // Timer display
             Text(timerViewModel.formattedTime)
@@ -56,7 +43,7 @@ struct MenuBarView: View {
                         .font(.system(size: 24))
                         .foregroundColor(.white)
                         .frame(width: 60, height: 60)
-                        .background(accentColor2)
+                        .background(theme.accentColor2)
                         .clipShape(Circle())
                 }
                 .buttonStyle(.plain)
@@ -69,7 +56,7 @@ struct MenuBarView: View {
                         .font(.system(size: 20))
                         .foregroundColor(.white)
                         .frame(width: 50, height: 50)
-                        .background(accentColor1)
+                        .background(theme.accentColor1)
                         .clipShape(Circle())
                 }
                 .buttonStyle(.plain)
@@ -82,7 +69,7 @@ struct MenuBarView: View {
                         .font(.system(size: 20))
                         .foregroundColor(.white)
                         .frame(width: 50, height: 50)
-                        .background(accentColor1)
+                        .background(theme.accentColor1)
                         .clipShape(Circle())
                 }
                 .buttonStyle(.plain)
@@ -97,7 +84,7 @@ struct MenuBarView: View {
                 }) {
                     Label("Settings", systemImage: "gearshape")
                         .font(.system(size: 14))
-                        .foregroundColor(accentColor3)
+                        .foregroundColor(theme.accentColor3)
                 }
                 .buttonStyle(.plain)
 
@@ -114,37 +101,9 @@ struct MenuBarView: View {
             }
         }
         .padding(20)
-        .background(backgroundColor)
+        .background(theme.backgroundColor)
         .sheet(isPresented: $showingSettings) {
             SettingsView(timerViewModel: timerViewModel)
         }
-    }
-}
-
-// Helper extension for hex colors
-extension Color {
-    init(hex: String) {
-        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
-        var int: UInt64 = 0
-        Scanner(string: hex).scanHexInt64(&int)
-        let a, r, g, b: UInt64
-        switch hex.count {
-        case 3: // RGB (12-bit)
-            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
-        case 6: // RGB (24-bit)
-            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
-        case 8: // ARGB (32-bit)
-            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
-        default:
-            (a, r, g, b) = (255, 0, 0, 0)
-        }
-
-        self.init(
-            .sRGB,
-            red: Double(r) / 255,
-            green: Double(g) / 255,
-            blue: Double(b) / 255,
-            opacity: Double(a) / 255
-        )
     }
 }
