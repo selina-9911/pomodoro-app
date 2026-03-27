@@ -13,7 +13,7 @@ A minimalist Pomodoro timer that lives in your macOS menu bar. Built with SwiftU
 
 ## Demo
 
-![Pomodoro Demo](demo.gif)
+<img src="demo.gif" alt="Pomodoro Demo">
 
 ## Requirements
 
