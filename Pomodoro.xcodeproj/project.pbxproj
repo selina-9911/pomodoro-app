@@ -18,7 +18,9 @@
 		AA0000110000000000000001 /* MenuBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000120000000000000001 /* MenuBarManager.swift */; };
 		AA0000130000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0000140000000000000001 /* Assets.xcassets */; };
 		BB59101C652FBC4457987516 /* doro.aiff in Resources */ = {isa = PBXBuildFile; fileRef = AAAF1829A1A2D048E98AC6BF /* doro.aiff */; };
-		/* End PBXBuildFile section */
+				B5BBC370603340B78AB2643A /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F3F5586B64EFE8A340A11 /* AppTheme.swift */; };
+		81B7C5EC9C464128BCADA3F8 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDC95C08D084A3989280FF1 /* Color+Hex.swift */; };
+/* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AA0000150000000000000001 /* Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,7 +37,9 @@
 		AA0000160000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA0000170000000000000001 /* Pomodoro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pomodoro.entitlements; sourceTree = "<group>"; };
 		AAAF1829A1A2D048E98AC6BF /* doro.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = doro.aiff; sourceTree = "<group>"; };
-		/* End PBXFileReference section */
+				261F3F5586B64EFE8A340A11 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		7CDC95C08D084A3989280FF1 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AA0000180000000000000001 /* Frameworks */ = {
@@ -75,7 +79,8 @@
 				AA0000140000000000000001 /* Assets.xcassets */,
 				AA0000160000000000000001 /* Info.plist */,
 				AA0000170000000000000001 /* Pomodoro.entitlements */,
-			);
+			
+				07E4D24D58C54CD19336A9F4 /* Extensions */,);
 			path = Pomodoro;
 			sourceTree = "<group>";
 		};
@@ -85,7 +90,8 @@
 				AA0000040000000000000001 /* SessionType.swift */,
 				AA0000060000000000000001 /* Settings.swift */,
 				AA0000080000000000000001 /* TimerViewModel.swift */,
-			);
+			
+				261F3F5586B64EFE8A340A11 /* AppTheme.swift */,);
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -116,6 +122,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		07E4D24D58C54CD19336A9F4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7CDC95C08D084A3989280FF1 /* Color+Hex.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -195,7 +210,9 @@
 				AA00000D0000000000000001 /* NotificationManager.swift in Sources */,
 				AA00000F0000000000000001 /* SoundPlayer.swift in Sources */,
 				AA0000110000000000000001 /* MenuBarManager.swift in Sources */,
-			);
+			
+				81B7C5EC9C464128BCADA3F8 /* Color+Hex.swift in Sources */,
+				B5BBC370603340B78AB2643A /* AppTheme.swift in Sources */,);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */

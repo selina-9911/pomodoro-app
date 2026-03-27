@@ -16,13 +16,8 @@ struct SettingsView: View {
     @State private var focusDuration: Int
     @State private var breakDuration: Int
 
-    // Adaptive color palette
-    private var backgroundColor: Color {
-        colorScheme == .dark ? Color(hex: "2a2a2a") : Color(hex: "F6F0D7")
-    }
-
-    private var accentColor2: Color {
-        colorScheme == .dark ? Color(hex: "7a9c6f") : Color(hex: "9CAB84")
+    private var theme: AppTheme {
+        AppTheme.current(for: colorScheme)
     }
 
     init(timerViewModel: TimerViewModel) {
@@ -79,12 +74,12 @@ struct SettingsView: View {
                 }
                 .keyboardShortcut(.defaultAction)
                 .buttonStyle(.borderedProminent)
-                .tint(accentColor2)
+                .tint(theme.accentColor2)
             }
             .padding(.bottom)
         }
         .frame(width: 400, height: 300)
-        .background(backgroundColor)
+        .background(theme.backgroundColor)
     }
 
     private func saveSettings() {
