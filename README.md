@@ -18,9 +18,23 @@ A minimalist Pomodoro timer that lives in your macOS menu bar. Built with SwiftU
 ## Requirements
 
 - macOS 13.0 or later
-- Xcode 15.0 or later
+- Xcode 15.0 or later (only needed if building from source)
 
 ## Installation
+
+### Download (No Xcode Required)
+
+1. Download the latest release from [Releases](https://github.com/selina-9911/pomodoro-app/releases)
+2. Unzip `Pomodoro.app.zip`
+3. Move `Pomodoro.app` to your Applications folder (optional)
+4. Double-click to run
+
+**First-time setup:** macOS will warn about an unidentified developer. To open:
+- Right-click on `Pomodoro.app` → **Open**
+- Click **Open** in the security dialog
+- The app will launch (this only needs to be done once)
+
+### Build from Source
 
 ### Quick Start (Command Line)
 

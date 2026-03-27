@@ -55,3 +55,7 @@ iOSInjectionProject/
 
 # macOS
 .DS_Store
+
+# Built app (for distribution, use GitHub Releases instead)
+*.app
+*.app.zip
