@@ -235,15 +235,9 @@ ls ~/Library/Developer/Xcode/DerivedData/Pomodoro-*/Build/Products/Debug/Pomodor
 ### Issue: Settings not persisting
 **Solution**: Check that the bundle identifier is correct and UserDefaults is accessible. Verify settings are saved with `settings.save()` before dismissing the settings view.
 
-## Future Enhancements (Out of Scope)
+## Future Enhancements
 
-- Statistics and history tracking
-- Multiple timer profiles
-- iCloud sync
-- Menu bar icon animations
-- Keyboard shortcuts
-- Multiple break types (short/long)
-- Daily goal tracking
+See [GitHub Issues](https://github.com/selina-9911/pomodoro-app/issues) for detailed feature requests and improvement tracking.
 
 ## Development Patterns
 
