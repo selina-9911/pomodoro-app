@@ -11,13 +11,19 @@ import SwiftUI
 struct SettingsView: View {
     @ObservedObject var timerViewModel: TimerViewModel
     @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
 
     @State private var focusDuration: Int
     @State private var breakDuration: Int
 
-    // Color palette
-    private let backgroundColor = Color(hex: "F6F0D7")
-    private let accentColor2 = Color(hex: "9CAB84")
+    // Adaptive color palette
+    private var backgroundColor: Color {
+        colorScheme == .dark ? Color(hex: "2a2a2a") : Color(hex: "F6F0D7")
+    }
+
+    private var accentColor2: Color {
+        colorScheme == .dark ? Color(hex: "7a9c6f") : Color(hex: "9CAB84")
+    }
 
     init(timerViewModel: TimerViewModel) {
         self.timerViewModel = timerViewModel

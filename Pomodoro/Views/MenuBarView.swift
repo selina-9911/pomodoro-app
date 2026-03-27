@@ -11,12 +11,24 @@ import SwiftUI
 struct MenuBarView: View {
     @ObservedObject var timerViewModel: TimerViewModel
     @State private var showingSettings = false
+    @Environment(\.colorScheme) var colorScheme
 
-    // Color palette
-    private let backgroundColor = Color(hex: "F6F0D7")
-    private let accentColor1 = Color(hex: "C5D89D")
-    private let accentColor2 = Color(hex: "9CAB84")
-    private let accentColor3 = Color(hex: "89986D")
+    // Adaptive color palette
+    private var backgroundColor: Color {
+        colorScheme == .dark ? Color(hex: "2a2a2a") : Color(hex: "F6F0D7")
+    }
+
+    private var accentColor1: Color {
+        colorScheme == .dark ? Color(hex: "8fb380") : Color(hex: "C5D89D")
+    }
+
+    private var accentColor2: Color {
+        colorScheme == .dark ? Color(hex: "7a9c6f") : Color(hex: "9CAB84")
+    }
+
+    private var accentColor3: Color {
+        colorScheme == .dark ? Color(hex: "a8c99f") : Color(hex: "89986D")
+    }
 
     var body: some View {
         VStack(spacing: 20) {
