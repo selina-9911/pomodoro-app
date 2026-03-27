@@ -132,11 +132,31 @@ The launcher will build the app if needed and launch it in your menu bar!
 
 ## Color Palette
 
-The app uses a custom color palette:
-- Background: #F6F0D7 (soft cream)
+The app uses a custom color palette that adapts to light/dark mode:
+- Background: #F6F0D7 (soft cream) in light mode, #2a2a2a (dark gray) in dark mode
 - Accent 1: #C5D89D (light sage)
 - Accent 2: #9CAB84 (muted green)
 - Accent 3: #89986D (dark olive)
+
+## 🗺️ Roadmap
+
+See [Issues](https://github.com/selina-9911/pomodoro-app/issues) for detailed feature requests and bug tracking.
+
+### v1.2.0 (Critical Fixes)
+- [ ] Fix timer accuracy ([#1](https://github.com/selina-9911/pomodoro-app/issues/1))
+- [ ] Add accessibility labels ([#2](https://github.com/selina-9911/pomodoro-app/issues/2))
+- [ ] Clean up menu bar display ([#6](https://github.com/selina-9911/pomodoro-app/issues/6))
+
+### v1.3.0 (Feature Complete)
+- [ ] Long break support ([#3](https://github.com/selina-9911/pomodoro-app/issues/3))
+- [ ] Session counting & history ([#4](https://github.com/selina-9911/pomodoro-app/issues/4))
+- [ ] Keyboard shortcuts ([#5](https://github.com/selina-9911/pomodoro-app/issues/5))
+- [ ] Save state on quit ([#8](https://github.com/selina-9911/pomodoro-app/issues/8))
+
+### v2.0.0 (Polish)
+- [ ] Statistics dashboard ([#9](https://github.com/selina-9911/pomodoro-app/issues/9))
+- [ ] Menu bar icon animation ([#10](https://github.com/selina-9911/pomodoro-app/issues/10))
+- [ ] Visual feedback on buttons ([#7](https://github.com/selina-9911/pomodoro-app/issues/7))
 
 ## Project Structure
 
